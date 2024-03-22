@@ -9,14 +9,12 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 100px;
     background-color: white;
-    border-radius: 20px;
 }
 .logo {
     font-family: Poppins;
     margin-bottom: 10px;
-    margin-left: 30px;
+    margin-left: 100px;
 }
 .nav-ul {
     display: flex;
@@ -28,5 +26,33 @@ nav {
 a.general{
     text-decoration: none;
     font-family: Poppins;
+    font-size: 16px;
     color: black;
+}
+#login, #signup {
+    height: 48px;
+    width: 96px;
+    border-radius: 20px;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+#login {
+    background-color: #DFF5FF;
+    margin-right: 20px;
+}
+#login:hover {
+    background-color: #95cad3;
+    color: rgb(3, 46, 48);
+}
+#signup {
+    background-color: #95d1d4;
+    width: 130px;
+    border-radius: 15px;
+    margin-right: 100px;
+    transition: color 0.15s, background-color 0.15s;
+}
+#signup:hover {
+    color: white;
+    background-color: rgba(149, 209, 212, 0.5);
 }
