@@ -2,7 +2,8 @@
 """
 Analytic Data
 """
-from models.engine.database import db
+from models.base_model import BaseModel
+from models.database.database_db import db
 
 
 class AnalyticsData(db.Model):

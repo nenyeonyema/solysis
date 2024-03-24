@@ -3,7 +3,8 @@
 Social Media post class
 """
 from datetime import datetime
-from models.engine.database import db
+from models.base_model import BaseModel
+from models.database.database_db import db
 
 
 class SocialMediaPost(db.Model):

@@ -2,7 +2,8 @@
 """
 UserProfile
 """
-from models.engine.database import db
+from models.base_model import BaseModel
+from models.database.database_db import db
 
 class UserProfile(db.Model):
     __tablename__ = 'user_profiles'
