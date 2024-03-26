@@ -4,6 +4,7 @@ Module for FileStorage class.
 """
 import json
 import os
+import models.analyze_post
 from models.base_model import BaseModel
 from models.user import User
 
@@ -12,9 +13,15 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
-    def all(self):
-        """Returns the dictionary __objects."""
-        return self.__objects
+    def all(self, cls=None):
+        """Returns the dictionary __objects filtered by class name cls."""
+        if cls is None:
+            return self.__objects
+        else:
+            return {key: obj for key, obj in self.__objects.items() if isinstance(obj, cls)}
+    """def all(self):
+        ""Returns the dictionary __objects.""
+        return self.__objects"""
 
     def new(self, obj):
         """Sets in __objects the obj with key <obj class name>.id."""
@@ -36,8 +43,12 @@ class FileStorage:
                     obj_dict = json.load(file)
                     for key, value in obj_dict.items():
                         class_name, obj_id = key.split('.')
-                        cls = globals()[class_name]
-                        class_instance = cls(**value)
+                        if class_name == 'Post':
+                            from models.create_post import Post
+                            class_instance = Post(**value)
+                        else:
+                            cls = globals()[class_name]
+                            class_instance = cls(**value)
                         self.__objects[key] = class_instance
             except FileNotFoundError:
                 pass
