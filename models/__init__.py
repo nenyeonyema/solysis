@@ -2,7 +2,6 @@
 """
     This module instantiates an object of class FileStorage
 """
-import models.analyze_post
 from models.database.file_storage import FileStorage
 from models.database.database_db import db
 from models.base_model import BaseModel

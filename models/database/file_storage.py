@@ -4,7 +4,6 @@ Module for FileStorage class.
 """
 import json
 import os
-import models.analyze_post
 from models.base_model import BaseModel
 from models.user import User
 

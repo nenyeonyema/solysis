@@ -10,7 +10,6 @@ import mysql.connector
 from models.base_model import BaseModel
 from models.socialmedia_post import SocialMediaPost
 from models.create_post import Post
-from models import analyze_post
 from models.database.database_db import db
 from models.user import User
 
@@ -223,41 +222,6 @@ class SocialMediaConsole(cmd.Cmd):
         new_post.schedule_time = schedule_time
         new_post.save()
         print(new_post.id)
-
-    def do_analyze_post(self, arg):
-        """
-        Analyze posts for a given user.
-        Usage: analyze_post <user_id>
-        """
-        args = shlex.split(arg)
-        if not args:
-            print("** user_id missing **")
-            return
-        
-        post_id = args[0]
-        # Retrieve the post from storage
-        all_posts = storage.all(Post)
-
-        # Filter the post with the provided ID
-        post = None
-        for stored_post in all_posts.values():
-            if stored_post.id == post_id:
-                post = stored_post
-                break
-        if not post:
-            print("** Post not found **")
-            return
-
-        # Extract the user_id from the post
-        user_id = post.user_id
-        
-        print("User ID:", user_id)
-
-        # Perform analysis
-        analysis_results = analyze_post.analyze_posts_for_user(user_id)
-
-        # Display the results
-        print(analysis_results)
 
 
 if __name__ == '__main__':
