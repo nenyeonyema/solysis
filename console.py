@@ -68,7 +68,7 @@ class SocialMediaConsole(cmd.Cmd):
             return
         class_name = args[0]
 
-        if class_name == "CreatePost":
+        if class_name == "Post":
             self.do_create_post(arg)
             return
 
