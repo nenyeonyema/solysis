@@ -2,24 +2,30 @@
 """
 Module for SocialMediaPost class.
 """
-from models.base_model import BaseModel
+from models.base_model import BaseModel, Base
+from sqlalchemy import Column, String, Integer
 
-class SocialMediaPost(BaseModel):
+
+class SocialMediaPost(BaseModel, Base):
     """
     SocialMediaPost class representing a social media post.
     """
+    __tablename__ = 'social_media_posts'
+
+
+    user_id = Column(String(60), nullable=False)
+    platform = Column(String(128), nullable=False)
+    message = Column(String(255), nullable=False)
+    schedule_time = Column(String(20), nullable=True)
+    likes = Column(Integer, nullable=False, default=0)
+    views = Column(Integer, nullable=False, default=0)
+    comments = Column(Integer, nullable=False, default=0)
+
     def __init__(self, *args, **kwargs):
         """
         Initializes a new instance of SocialMediaPost.
         """
         super().__init__(*args, **kwargs)
-        self.user_id = kwargs.get('user_id', "")
-        self.platform = kwargs.get('platform', "")
-        self.message = kwargs.get('message', "")
-        self.schedule_time = kwargs.get('schedule_time', "")
-        self.likes = kwargs.get('likes', 0)
-        self.views = kwargs.get('views', 0)
-        self.comments = kwargs.get('comments', 0)
 
     def to_dict(self):
         """

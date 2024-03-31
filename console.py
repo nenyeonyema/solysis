@@ -10,7 +10,7 @@ import mysql.connector
 from models.base_model import BaseModel
 from models.socialmedia_post import SocialMediaPost
 from models.create_post import Post
-from models.database.database_db import db
+from models.database.database_db import DBStorage
 from models.user import User
 
 
@@ -75,7 +75,30 @@ class SocialMediaConsole(cmd.Cmd):
         if class_name not in globals():
             print("** class doesn't exist **")
             return
-        new_instance = globals()[class_name]()
+
+        # Get the class definition
+        obj_class = globals()[class_name]
+
+        # Parse parameters
+        params = {}
+        for param in args[1:]:
+            try:
+                key, value = param.split('=')
+                # Handle string value
+                if value.startswith('"') and value.endswith('"'):
+                    value = value[1:-1].replace('_', ' ').replace('\\"', '"')
+                # Handle float value
+                elif '.' in value:
+                    value = float(value)
+                # Handle integer value
+                else:
+                    value = int(value)
+                params[key] = value
+            except ValueError:
+                # Skip invalid parameters
+                continue
+
+        new_instance = obj_class(**params)
         new_instance.save()
         print(new_instance.id)
 

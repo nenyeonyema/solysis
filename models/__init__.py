@@ -3,7 +3,7 @@
     This module instantiates an object of class FileStorage
 """
 from models.database.file_storage import FileStorage
-from models.database.database_db import db
+from models.database.database_db import DBStorage
 from models.base_model import BaseModel
 from models.user import User
 from models.create_post import Post

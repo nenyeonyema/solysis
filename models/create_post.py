@@ -4,14 +4,23 @@
 """
 
 
-from models.base_model import BaseModel
+from models.base_model import BaseModel, Base
+from sqlalchemy import Column, String
+from sqlalchemy.ext.declarative import declarative_base
 
 
-class Post(BaseModel):
+class Post(BaseModel, Base):
+    """
+    Post class representing a post entity.
+    """
+    __tablename__ = 'posts'
+
+    platform = Column(String(128), nullable=False)
+    message = Column(String(255), nullable=False)
+    schedule_time = Column(String(20), nullable=True)
+
     def __init__(self, *args, **kwargs):
+        """
+        Initializes a new instance of Post.
+        """
         super().__init__(*args, **kwargs)
-        # Can be 'facebook', 'twitter', 'linkedin'
-        self.platform = kwargs.get('platform', '')  # Assign platform from kwargs or default to empty string
-        self.message = kwargs.get('message', '')    # Assign message from kwargs or default to empty string
-        # Format: %Y-%m-%dT%H:%M:%S (e.g., 2017-06-14T22:31:03)
-        self.schedule_time = kwargs.get('schedule_time', '')  # Assign schedule_time from kwargs or default to empty string
