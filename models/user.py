@@ -4,7 +4,7 @@ User
 """
 from models.base_model import BaseModel, Base
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, Integer
 
 
 class User(BaseModel, Base):
@@ -15,11 +15,10 @@ class User(BaseModel, Base):
 
     email = Column(String(128), nullable=False)
     password = Column(String(128), nullable=False)
-    first_name = Column(String(128), nullable=True)
-    last_name = Column(String(128), nullable=True)
+    first_name = Column(String(128))
+    last_name = Column(String(128))
+    username = Column(String(50))
+    location = Column(String(50))
+    age = Column(Integer)
+    gender = Column(String(20))
 
-    def __init__(self, *args, **kwargs):
-        """
-        Initializes a new instance of User.
-        """
-        super().__init__(*args, **kwargs)

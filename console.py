@@ -75,30 +75,33 @@ class SocialMediaConsole(cmd.Cmd):
         if class_name not in globals():
             print("** class doesn't exist **")
             return
-
         # Get the class definition
         obj_class = globals()[class_name]
 
         # Parse parameters
-        params = {}
+        obj_params = {}
         for param in args[1:]:
             try:
                 key, value = param.split('=')
-                # Handle string value
+                key = key.strip()
+
                 if value.startswith('"') and value.endswith('"'):
                     value = value[1:-1].replace('_', ' ').replace('\\"', '"')
-                # Handle float value
-                elif '.' in value:
+                elif '.' in value and all(part.isdigit()
+                                          for part in value.split('.')):
                     value = float(value)
-                # Handle integer value
-                else:
-                    value = int(value)
-                params[key] = value
-            except ValueError:
-                # Skip invalid parameters
-                continue
 
-        new_instance = obj_class(**params)
+                elif value.isdigit():
+                    value = int(value)
+                else:
+                    # Treat value as string if it doesn't meet other criteria
+                    value = value.strip('"')
+                    # continue
+                obj_params[key] = value
+            except ValueError:
+                pass
+
+        new_instance = obj_class(**obj_params)
         new_instance.save()
         print(new_instance.id)
 

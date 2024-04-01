@@ -47,7 +47,7 @@ class DBStorage:
                 key = "{}.{}".format(cls.__name__, obj.id)
                 objects[key] = obj
         else:
-            all_classes = [User, Post]  # Import User and Post here
+            all_classes = [User, Post, SocialMediaPost]  # Import classes here
             for cls in all_classes:
                 query_result = self.__session.query(cls).all()
                 for obj in query_result:

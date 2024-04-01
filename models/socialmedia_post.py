@@ -17,9 +17,9 @@ class SocialMediaPost(BaseModel, Base):
     platform = Column(String(128), nullable=False)
     message = Column(String(255), nullable=False)
     schedule_time = Column(String(20), nullable=True)
-    likes = Column(Integer, nullable=False, default=0)
+    """likes = Column(Integer, nullable=False, default=0)
     views = Column(Integer, nullable=False, default=0)
-    comments = Column(Integer, nullable=False, default=0)
+    comments = Column(Integer, nullable=False, default=0)"""
 
     def __init__(self, *args, **kwargs):
         """
@@ -36,9 +36,9 @@ class SocialMediaPost(BaseModel, Base):
         obj_dict['platform'] = self.platform
         obj_dict['message'] = self.message
         obj_dict['schedule_time'] = self.schedule_time
-        obj_dict['likes'] = self.likes
+        """obj_dict['likes'] = self.likes
         obj_dict['views'] = self.views
-        obj_dict['comments'] = self.comments
+        obj_dict['comments'] = self.comments"""
         return obj_dict
 
     def __str__(self):
