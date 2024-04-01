@@ -98,7 +98,19 @@ a.general{
     overflow: hidden;
     min-height: 500px;
     width: 100%;
+    animation-name: slidein;
+    animation-duration: 15s;
 
+}
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300px;
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
 }
 .moving-div {
     display: block;
