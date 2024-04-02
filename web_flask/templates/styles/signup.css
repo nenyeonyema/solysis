@@ -1,0 +1,29 @@
+:root {
+    --clr-1: #052b2f;
+    --clr-2: #073438;
+    --clr-3: #0e4b50;
+    --clr-4: #2d8f85;
+    --clr-5: #637c54;
+}
+* {
+    font-family: 'Poppins';
+}
+body {
+    background: var(--clr-2);
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+}
+input {
+    width: 300px;
+    height: 30px;
+}
+
+
+/* .container::before {
+    content: '';
+    position: absolute;
+    width: 170px;
+    height: 80%;
+    background: linear-gradient(#222831, #31363F);
+} */

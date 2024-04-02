@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap&effect=emboss"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia|Poppins&effect=neon|outline|emboss|shadow-multiple|3d-float">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Signup - Solysis</title>
 </head>
 <body>
     <div class="container">
         <h2>Sign Up</h2>
         <form action="/signup" method="post">
-            <label for="first-name">First Name:</label>
-            <input type="text" id="first-name" name="first-name" required><br><br>
-            <label for="last-name">Last Name:</label>
-            <input type="text" id="last-name" name="last-name" required><br><br>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required><br><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" style="margin-right: 20px;" required><br><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br><br>
-            <button type="submit">Sign Up</button>
+            <label for="first-name">First Name:</label><br>
+            <input type="text" id="first-name" placeholder="enter your first name" name="first-name" required><br><br>
+            <label for="last-name">Last Name:</label><br>
+            <input type="text" id="last-name" name="last-name" placeholder="enter your last name" required><br><br>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" placeholder="enter your username" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="enter your email address" style="margin-right: 20px;" required><br><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" placeholder="enter your password" required><br><br>
+            <button type="submit">Sign Up</button><br>
         </form>
         <p>Already have an account? <a href="login.html">Login</a></p>
     </div>
