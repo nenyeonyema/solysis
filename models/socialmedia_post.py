@@ -3,6 +3,7 @@
 Module for SocialMediaPost class.
 """
 from models.base_model import BaseModel, Base
+import sqlalchemy
 from sqlalchemy import Column, String, Integer
 
 

@@ -5,8 +5,9 @@ Console
 import cmd
 import shlex
 import os
-from models import storage
-import mysql.connector
+from models.__init__ import storage
+# from models import storage
+# import mysql.connector
 from models.base_model import BaseModel
 from models.socialmedia_post import SocialMediaPost
 from models.create_post import Post

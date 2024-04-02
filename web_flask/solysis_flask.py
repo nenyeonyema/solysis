@@ -4,7 +4,7 @@ starts a Flask web application
 """
 
 from flask import Flask, render_template, request, redirect, url_for
-from database import db
+from models import storage
 from models import User
 
 

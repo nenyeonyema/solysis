@@ -5,6 +5,7 @@ Module for BaseModel class.
 
 import uuid
 from datetime import datetime
+import sqlalchemy
 from sqlalchemy import Column, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 import models

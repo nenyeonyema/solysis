@@ -2,8 +2,13 @@
 """
 Contains the class DBStorage
 """
+import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.ext.declarative import declarative_base
+from models.user import User
+from models.create_post import Post
+from models.socialmedia_post import SocialMediaPost
 from models.base_model import Base
 import os
 
@@ -15,7 +20,7 @@ class DBStorage:
     __engine = None
     __session = None
 
-    def __init__(self):
+    def _init_(self):
         """
         Initializes a new instance of DBStorage.
         """
@@ -44,14 +49,14 @@ class DBStorage:
         if cls is not None:
             query_result = self.__session.query(cls).all()
             for obj in query_result:
-                key = "{}.{}".format(cls.__name__, obj.id)
+                key = "{}.{}".format(cls._name_, obj.id)
                 objects[key] = obj
         else:
             all_classes = [User, Post, SocialMediaPost]  # Import classes here
             for cls in all_classes:
                 query_result = self.__session.query(cls).all()
                 for obj in query_result:
-                    key = "{}.{}".format(cls.__name__, obj.id)
+                    key = "{}.{}".format(cls._name_, obj.id)
                     objects[key] = obj
         return objects
 
@@ -80,4 +85,32 @@ class DBStorage:
         """
         Base.metadata.create_all(self.__engine)
         session_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
-        self.__session = scoped_session(session_factory)
+        Session = scoped_session(session_factory)
+        self.__session = Session()
+
+    def close(self):
+        """Closes the current session"""
+        self.__session.close()
+
+
+    def get(self, cls, id):
+        """
+        Retrieve one object
+        """
+        temp = self.all(cls)
+        for key, value in temp.items():
+            if (value.id == id):
+                return value
+        return None
+
+    def count(self, cls=None):
+        """
+        Count number of objects in storage
+        """
+        if cls:
+            return self.__session.query(cls).count()
+        else:
+            count_total = 0
+            for clss in classes.values():
+                count_total += self.__session.query(clss).count()
+            return count_total
