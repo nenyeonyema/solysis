@@ -6,8 +6,6 @@ import cmd
 import shlex
 import os
 from models.__init__ import storage
-# from models import storage
-# import mysql.connector
 from models.base_model import BaseModel
 from models.socialmedia_post import SocialMediaPost
 from models.create_post import Post
@@ -146,12 +144,17 @@ class SocialMediaConsole(cmd.Cmd):
             print("** instance id missing **")
             return
         instance_id = args[1]
-        key = "{}.{}".format(class_name, instance_id)
+        """key = "{}.{}".format(class_name, instance_id)
         objects = storage.all()
         if key not in objects:
             print("** no instance found **")
             return
-        del objects[key]
+        del objects[key]"""
+        obj = storage.get(eval(class_name), instance_id)
+        if obj is None:
+            print("** no instance found **")
+            return
+        storage.delete(obj)
         storage.save()
 
     def do_all(self, arg):

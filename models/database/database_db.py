@@ -51,14 +51,14 @@ class DBStorage:
         if cls is not None:
             query_result = self.__session.query(cls).all()
             for obj in query_result:
-                key = "{}.{}".format(cls._name_, obj.id)
+                key = "{}.{}".format(cls.__name__, obj.id)
                 objects[key] = obj
         else:
             all_classes = [User, Post, SocialMediaPost]  # Import classes here
             for cls in all_classes:
                 query_result = self.__session.query(cls).all()
                 for obj in query_result:
-                    key = "{}.{}".format(cls._name_, obj.id)
+                    key = "{}.{}".format(cls.__name__, obj.id)
                     objects[key] = obj
         return objects
 
@@ -80,6 +80,7 @@ class DBStorage:
         """
         if obj is not None:
             self.__session.delete(obj)
+            self.__session.commit()
 
     def reload(self):
         """

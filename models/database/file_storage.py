@@ -59,3 +59,8 @@ class FileStorage:
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
         if key in self.__objects:
             del self.__objects[key]
+
+    def get(self, cls, id):
+        """Retrieve one object"""
+        key = "{}.{}".format(cls.__name__, id)
+        return self.__objects.get(key, None)
