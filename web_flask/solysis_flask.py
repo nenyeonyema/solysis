@@ -5,7 +5,6 @@ starts a Flask web application
 
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from models.database.database_db import DBStorage
-# from models.database.file_storage import FileStorage
 from models.user import User
 
 
