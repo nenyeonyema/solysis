@@ -20,7 +20,7 @@ class DBStorage:
     __engine = None
     __session = None
 
-    def _init_(self):
+    def __init__(self):
         """
         Initializes a new instance of DBStorage.
         """
@@ -38,6 +38,8 @@ class DBStorage:
 
         if os.environ.get('SOLYSIS_ENV') == 'test':
             Base.metadata.drop_all(self.__engine)
+
+        self.reload()
 
     def all(self, cls=None):
         """

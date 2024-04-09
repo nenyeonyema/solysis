@@ -9,7 +9,10 @@ from models.socialmedia_post import SocialMediaPost
 from os import getenv
 
 
-if getenv("HBNB_TYPE_STORAGE") == "db":
+storage_t = getenv("SOLYSIS_TYPE_STORAGE")
+
+
+if storage_t == "db":
     from models.database.database_db import DBStorage
     storage = DBStorage()
 else:
