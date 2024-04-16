@@ -5,8 +5,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-
-    /* height: 100vh; */
+    height: 100vh;
 }
 main {
     overflow-x: hidden;
@@ -20,18 +19,33 @@ nav {
     position: fixed;
     background-color: white;
     border-radius: 15px;
+    height: 60px;  /* added here */
     width: 100%;
+    top: 0; /* added here */
+    z-index: 1000; /* added here */
 }
 .logo {
     font-family: Poppins;
     margin-bottom: 10px;
     margin-left: 100px;
+    text-decoration: none;
 }
+
 a.general{
     text-decoration: none;
     font-family: Poppins;
     font-size: 16px;
     color: black;
+}
+.g-all {
+    cursor: pointer;
+    font-size: 18px;
+    transition: font-weight 0.15s;
+}
+.g-all:hover {
+    /* background-color: #DFF5FF; */
+    font-weight: 700;
+    /* border-radius: 30px; */
 }
 .login, .signup {
     height: 48px;
@@ -100,6 +114,7 @@ a.general{
     width: 100%;
     animation-name: slidein;
     animation-duration: 15s;
+    /* animation-timing-function: linear; */
 
 }
 @keyframes slidein {
@@ -121,7 +136,7 @@ a.general{
     background-color: white;
     border: 5px solid transparent;
     border-radius: 15px;
-    border-color: #401F71 #824D74;
+    /* border-color: #401F71 #824D74; */
     cursor: pointer;
     transition: width height 0.15s;
 }
@@ -230,6 +245,7 @@ a.general{
     animation-timing-function: ease-in-out; 
     animation-iteration-count: infinite;
 }
+
 @keyframes bounce {
     0% {
         transform: translateY(0);
@@ -262,6 +278,84 @@ a.general{
 .container6 .c1-child2 {
     margin-top: 150px;
 }
+footer {
+    background-color: black;
+    width: 100%;
+    min-height: 800px;
+    margin: 0;
+}
+.container7 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+footer div.container7 h2 {
+    color: white;
+    font-size: 18px;
+    font-family: Poppins;
+    text-align: center;
+}
+
+.icon1 {
+    color: white;
+    font-weight: 700;
+    font-size:40px;
+    margin: auto;
+    margin-top: 300px;
+    text-shadow: #232e2c;
+    text-decoration: none;
+}
+.contact {
+    display: block;
+}
+.dev p {
+    font-family: Poppins;
+    color: white;
+}
+.sm-icons {
+    display: flex;
+    justify-content: center;
+}
+
+.icon3 {
+    color: #ffffff;
+    font-size: 30px;
+    margin: 0 10px;
+    transition: all 0.5s ease;
+}
+
+.icon3:hover {
+    transform: scale(1.2);
+}
+.icon4 {
+    transform: scale(0.7);
+}
+.icon {
+    flex: 1;
+    height: 26vh;
+    width: 100vw;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.inner-div {
+    flex: 2;
+    height: 70vh;
+    width: 100vw;
+    color: white;
+    /* flex-wrap: wrap; */
+}
+.inner-div p {
+    font-family: 'Poppins', 'sans-serif';
+    font-size: 14px;
+}
+.about h2 {
+    font-size: 20px;
+}
+.about h2, .dev p {
+    text-align: center;
+}
+
 @media only screen and (min-width: 1024px) {
     .nav-ul, .register, .noshow {
         display: flex;
@@ -279,12 +373,13 @@ a.general{
         flex-direction: row;
         width: 100vw;
     }
-    .c1-child1{
-        margin-top: 0px;
+    .container1 .c1-child1{
+        margin-top: -10px;
     }
     .c1-child2 {
         margin-top: 130px;
         margin-right: 100px;
+        
     }
     nav button.signup {
         margin-right: 50px;
@@ -293,16 +388,21 @@ a.general{
         height: 45px;
         width: 300px;
         border-radius: 10px;
-        margin-right: 10px;
-        margin-top: 50px;
+        margin-top: 20px;
         border: none;
     }
+    .page-signup {
+        margin-right: -100px;
+    }
     .audience {
-        font-size: 38px; /* Adjust font size for smaller screens */
+        font-size: 36px;
+        margin-top: 0px;
+        /* Adjust font size for smaller screens */
         /* text-align: justify; */
     }
+    
     .potential {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         font-weight: 500;
     }
     .container2 {
@@ -322,7 +422,7 @@ a.general{
         background-color: white;
         border: 5px solid transparent;
         border-radius: 15px;
-        border-color: #401F71 #824D74;
+        /* border-color: #401F71 #824D74; */
         cursor: pointer;
         transition: width height 0.15s;
     }
@@ -341,11 +441,12 @@ a.general{
         width: 550px;
     }
     .container3 .c1-child1 {
-        margin-top: -350px;
+        margin-top: -250px;
         margin-left: 50px;
     }
+    
     .container4 .c1-child1 {
-    margin-top: -200px;
+    margin-top: -250px;
     margin-left: -100px;
     }
     .container6 .c1-child1 {
@@ -353,7 +454,71 @@ a.general{
         
     }
     .container6 .c1-child2 {
+        margin-top: 200px;   
+    }
+    footer {
+        background-color: black;
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+        min-height: 600px;
+        margin: 0;
+    }
+    .container7 {
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    div.icon {
+    display: flex;
+    flex-direction: column;
+    }
+    
+    .icon {
+        flex: 1;
+        height: 100vh;
+        width: 26vw;
+
+    }
+    .inner-div {
+        flex: 2;
+        height: 100vh;
+        width: 70vw;
+        color: white;
+    }
+    .inner-div p {
+        font-family: Poppins, 'sans-serif';
+        font-size: 16px;
+    }
+    .icon-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+    }
+    .icon1 {
         margin-top: 200px;
-        
+        height: 30vh;
+        position: absolute;
+        left: 150px;
+        bottom: 200px;
+    }
+    .contact {
+        flex-grow: 1;
+        position: absolute;
+        bottom: 0;
+    }
+    .dev1 {
+        margin-top: 50px;
+    }
+    
+    .about h2 {
+        font-size: 30px;
+        margin-top: 50px;
+    }
+    .about p {
+       margin-top: 50px;
     }
 }
