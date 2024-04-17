@@ -34,10 +34,12 @@ From Nenye’s days studying statistics to her time in sales, She has always bee
 2. For the handling user and interacting with the database to perform CRUD (Create, Read, Update, Delete) operations on the data.
 *            Run the console.py file[./console.py] and use the create, all, show, destroy,create_post functions, as defined in the console.py file.
 *            Note: Run "apt install mysql-server" if you got a "sqlalchemy not defined" error at first ./console.py run.
-*            You can also run console.py using MYSQL database to create user and create post:
-*echo 'create User email="example@mail.com" password=your_password first_name="your name" last_name="your lastname" username="your_username"' | SOLYSIS_MYSQL_USER=solysis_dev SOLYSIS_MYSQL_PWD=solysis_dev_pwd SOLYSIS_MYSQL_HOST=localhost SOLYSIS_MYSQL_DB=solysis_dev_db SOLYSIS_TYPE_STORAGE=db ./console.py*
 
-*echo 'create_post 6dbb99a9-14f1-4b8e-9112-778e5b91b852 facebook "The first message" --schedule 2024-03-30T19:32:01' | SOLYSIS_MYSQL_USER=solysis_dev SOLYSIS_MYSQL_PWD=solysis_dev_pwd SOLYSIS_MYSQL_HOST=localhost SOLYSIS_MYSQL_DB=solysis_dev_db SOLYSIS_TYPE_STORAGE=db ./console.py* [Arguments are "previously generated user_id", "platform to send post", "Message to be posted", "Scheduled time of post".]
+You can also run console.py using MYSQL database to create user and create post:
+* echo 'create User email="example@mail.com" password=your_password first_name="your name" last_name="your lastname" username="your_username"' | SOLYSIS_MYSQL_USER=solysis_dev SOLYSIS_MYSQL_PWD=solysis_dev_pwd SOLYSIS_MYSQL_HOST=localhost SOLYSIS_MYSQL_DB=solysis_dev_db SOLYSIS_TYPE_STORAGE=db ./console.py
+
+* echo 'create_post 6dbb99a9-14f1-4b8e-9112-778e5b91b852 facebook "The first message" --schedule 2024-03-30T19:32:01' | SOLYSIS_MYSQL_USER=solysis_dev SOLYSIS_MYSQL_PWD=solysis_dev_pwd SOLYSIS_MYSQL_HOST=localhost SOLYSIS_MYSQL_DB=solysis_dev_db SOLYSIS_TYPE_STORAGE=db ./console.py
+*[Arguments are "previously generated user_id", "platform to send post", "Message to be posted", "Scheduled time of post".]*
 
 3. Run Web_flask:
 *             *SOLYSIS_MYSQL_USER=solysis_dev SOLYSIS_MYSQL_PWD=solysis_dev_pwd SOLYSIS_MYSQL_HOST=localhost SOLYSIS_MYSQL_DB=solysis_dev_db SOLYSIS_TYPE_STORAGE=db SOLYSIS_API_HOST=0.0.0.0 SOLYSIS_API_PORT=5000 python3 -m web_flask.solysis_flask*
@@ -102,8 +104,8 @@ These APIs and methods facilitate communication between the web client and serve
 * *Chinenye Genevieve Onyema* [Nenye's Github](https://github.com/nenyeonyema/) - Cloud Solutions Architect | Software Developer | DevOps Engineer | Statistician.
 
 # Related projects
-[AirBnB Clone](https://github.com/nenyeonyema/AirBnB_clone_v3.git) : A web Apllication made in Python, Flask, and JQuery.
-[Simple_shell](https://github.com/Slonjoh/simple_shell.git) : The Simple Shell implementation of a Unix shell, provides a command line interface for users to interact with their operating system.
+1. [AirBnB Clone](https://github.com/nenyeonyema/AirBnB_clone_v3.git) : A web Apllication made in Python, Flask, and JQuery.
+2. [Simple_shell](https://github.com/Slonjoh/simple_shell.git) : The Simple Shell implementation of a Unix shell, provides a command line interface for users to interact with their operating system.
 
 # LICENSE
 MIT License
