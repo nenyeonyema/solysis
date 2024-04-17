@@ -27,4 +27,83 @@ From Nenye’s days studying statistics to her time in sales, She has always bee
 * *Ojo Oluwatobiloba* [Slonjoh's Linkedin](https://www.linkedin.com/in/slonjoh/) - Software Engineer | Occasional Writer | Graphics designer | Chemist.
 * *Chinenye Genevieve Onyema* [Nenye's Linkedin](https://www.linkedin.com/in/chinenyeonyema/) - Cloud Solutions Architect | Software Developer | DevOps Engineer | Statistician.
 
-## Installation
+# Installation and Usage 
+1. Clone this repository to your local machine using the command:
+*            git clone https://github.com/nenyeonyema/solysis.git
+
+2. For the handling user and interacting with the database to perform CRUD (Create, Read, Update, Delete) operations on the data.
+*            Run the console.py file[./console.py] and use the create, all, show, destroy,create_post functions, as defined in the console.py file.
+*            Note: Run "apt install mysql-server" if you got a "sqlalchemy not defined" error at first ./console.py run.
+*            You can also run console.py using MYSQL database to create user and create post:
+*echo 'create User email="example@mail.com" password=your_password first_name="your name" last_name="your lastname" username="your_username"' | SOLYSIS_MYSQL_USER=solysis_dev SOLYSIS_MYSQL_PWD=solysis_dev_pwd SOLYSIS_MYSQL_HOST=localhost SOLYSIS_MYSQL_DB=solysis_dev_db SOLYSIS_TYPE_STORAGE=db ./console.py*
+
+*echo 'create_post 6dbb99a9-14f1-4b8e-9112-778e5b91b852 facebook "The first message" --schedule 2024-03-30T19:32:01' | SOLYSIS_MYSQL_USER=solysis_dev SOLYSIS_MYSQL_PWD=solysis_dev_pwd SOLYSIS_MYSQL_HOST=localhost SOLYSIS_MYSQL_DB=solysis_dev_db SOLYSIS_TYPE_STORAGE=db ./console.py* [Arguments are "previously generated user_id", "platform to send post", "Message to be posted", "Scheduled time of post".]
+
+3. Run Web_flask:
+*             *SOLYSIS_MYSQL_USER=solysis_dev SOLYSIS_MYSQL_PWD=solysis_dev_pwd SOLYSIS_MYSQL_HOST=localhost SOLYSIS_MYSQL_DB=solysis_dev_db SOLYSIS_TYPE_STORAGE=db SOLYSIS_API_HOST=0.0.0.0 SOLYSIS_API_PORT=5000 python3 -m web_flask.solysis_flask*
+
+### Architecture
+![Architectyre](/images/architecture.jpg)
+
+### APIs and Methods
+
+#### API Routes for Web Client Communication:
+
+1. /api/social-media/posts
+* GET: Retrieves recent social media posts for the authenticated user.
+* POST: Allows the user to create a new social media post.
+
+2. /api/social-media/analytics
+* GET: Fetches analytics data for the user's social media posts, including engagement metrics and audience demographics.
+
+3. /api/user/profile
+* GET: Returns the user's profile information, such as username, email, and profile picture.
+* POST: Allows the user to update their profile information.
+
+#### API Endpoints for External Clients:
+1. Class: SocialMediaAPI
+* Method: getRecentPosts(user_id)
+         *Retrieves recent social media posts for the specified user.*
+* Method: analyzePostEngagement(post_id)
+         *Analyzes the engagement metrics of a specific social media post.*
+
+2. Class: UserProfileAPI
+* Method: getUserProfile(user_id)
+         *Retrieves the profile information of the specified user.*
+* Method: updateUserProfile(user_id, profile_data)
+         *Updates the profile information of the specified user with the provided data.*
+#### 3rd Party APIs:
+1. Twitter API
+* POST statuses/update: Allows posting new tweets.
+* POST statuses/destroy/:id: Deletes a tweet by its ID.
+* GET statuses/show/:id: Retrieves a specific tweet by its ID.
+* GET statuses/oembed: Generates an HTML representation of a tweet.
+* GET statuses/lookup: Retrieves multiple tweets by their IDs.
+
+2. Facebook Graph API
+* GET /{user-id}/posts: Retrieves posts from a user's timeline.
+* GET /{post-id}/insights: Fetches insights data for a specific post.
+* POST /{page-id}/feed: Publishes a new post on a Facebook Page.
+
+3. LinkedIn API
+* GET /v2/me: Retrieves the profile information of the authenticated user.
+* GET /v2/ugcPosts: Fetches posts created by the authenticated user.
+* POST /v2/ugcPosts: Allows the user to create a new post on LinkedIn.
+
+These APIs and methods facilitate communication between the web client and server, as well as providing functionalities for external clients to interact with the system. Additionally, integration with 3rd party APIs such as Twitter, Facebook, and LinkedIn enriches the platform's capabilities by leveraging data and functionalities from these social media platforms.
+
+## User Usage
+![Analysis](/images/Social-media-overview-dashboard-followers.png)
+
+![Post](/images/socials-1.png)
+
+# Contributing
+* *Ojo Oluwatobiloba* [Slonjoh's Github](https://github.com/Slonjoh) - Software Engineer | Occasional Writer | Graphics designer | Chemist.
+* *Chinenye Genevieve Onyema* [Nenye's Github](https://github.com/nenyeonyema/) - Cloud Solutions Architect | Software Developer | DevOps Engineer | Statistician.
+
+# Related projects
+[AirBnB Clone](https://github.com/nenyeonyema/AirBnB_clone_v3.git) : A web Apllication made in Python, Flask, and JQuery.
+[Simple_shell](https://github.com/Slonjoh/simple_shell.git) : The Simple Shell implementation of a Unix shell, provides a command line interface for users to interact with their operating system.
+
+# LICENSE
+MIT License
