@@ -15,6 +15,8 @@ Whether you're a person trying to build a social presence, a solo entrepreneur o
 
 ### What inspired this project?
 From Nenye’s days studying statistics to her time in sales, She has always been captivated by the power of data. There's something magical about turning numbers into actionable insights, especially when it comes to understanding customer behaviors and engagement. This shared passion with Tobi led to the creation of Solysis. We wanted to craft a tool that not only simplifies but also enhances the way brands interact with their audience. Our mission? To harness the strength of data to supercharge marketing strategies and boost sales.
+
+### Deployed Website
 [SOLYSIS DEPLOYED PAGE](https://solysis.vercel.app/)
 
 ### Blog posts
