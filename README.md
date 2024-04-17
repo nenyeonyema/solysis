@@ -42,7 +42,7 @@ You can also run console.py using MYSQL database to create user and create post:
 *[Arguments are "previously generated user_id", "platform to send post", "Message to be posted", "Scheduled time of post".]*
 
 3. Run Web_flask:
-*             *SOLYSIS_MYSQL_USER=solysis_dev SOLYSIS_MYSQL_PWD=solysis_dev_pwd SOLYSIS_MYSQL_HOST=localhost SOLYSIS_MYSQL_DB=solysis_dev_db SOLYSIS_TYPE_STORAGE=db SOLYSIS_API_HOST=0.0.0.0 SOLYSIS_API_PORT=5000 python3 -m web_flask.solysis_flask*
+*             *SOLYSIS_MYSQL_USER=solysis_dev SOLYSIS_MYSQL_PWD=solysis_dev_pwd SOLYSIS_MYSQL_HOST=localhost SOLYSIS_MYSQL_DB=solysis_dev_db SOLYSIS_TYPE_STORAGE=db SOLYSIS_API_HOST=0.0.0.0 SOLYSIS_API_PORT=5000 python3 -m web_flask.solysis_flask
 
 ### Architecture
 ![Architectyre](/images/architecture.jpg)
